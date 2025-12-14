@@ -107,17 +107,17 @@ function App() {
             {/* Left Column - Content */}
             <div className="space-y-8">
               {/* Main Heading */}
-              <h1 className="text-h1 text-gray-900 leading-tight">
+              <h1 className="text-h1 text-gray-900 leading-tight hero-animate hero-fade-in-up">
                 <span className="text-primary">Validate Before You Waste Six Months</span>
               </h1>
 
               {/* Description */}
-              <p className="text-lead text-gray-700 max-w-2xl">
+              <p className="text-lead text-gray-700 max-w-2xl hero-animate hero-fade-in-up-delay-1">
                 A full-day working session where you build a usable prototype and put it in front of real people—so you go home with actual responses (or clear non-response you can act on).
               </p>
 
               {/* First Aside - Benefits */}
-              <aside className="bg-white/80 backdrop-blur-sm border-l-4 border-primary rounded-lg p-6 shadow-sm">
+              <aside className="bg-white/80 backdrop-blur-sm border-l-4 border-primary rounded-lg p-6 shadow-sm hero-animate hero-fade-in-up-delay-2">
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@ function App() {
               </aside>
 
               {/* Second Aside - Event Details */}
-              <aside className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+              <aside className="bg-gray-50 rounded-xl p-6 border border-gray-200 hero-animate hero-fade-in-up-delay-2">
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,7 @@ function App() {
               </aside>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 hero-animate hero-fade-in-up-delay-3">
                 <div className="flex-1">
                   <button className="btn btn-primary w-full sm:w-auto">
                     Register for Jan 23 Workshop
@@ -197,7 +197,7 @@ function App() {
 
             {/* Right Column - Image */}
             <div className="relative lg:pl-8">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl hero-image-reveal">
                 {/* Main Image */}
                 <img 
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=1000&fit=crop&q=80" 
