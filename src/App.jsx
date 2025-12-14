@@ -3,52 +3,32 @@ import FAQItem from './components/FAQItem'
 function App() {
   const faqs = [
     {
+      question: "What will I leave with after the Workshop (Day 1)?",
+      answer: "You'll leave with (1) a working prototype or demo you can show, (2) a validation plan (who to test, what to ask, what \"good\" looks like), and (3) a 14-day execution roadmap with prioritized next actions."
+    },
+    {
       question: "What's the difference between Workshop Only, Coaching Only, and Full Package?",
-      answer: "Workshop Only (₱9,900 early bird) is a full-day session where you build a prototype and test it with real people. Coaching Only (₱19,900 early bird) includes 12 weeks of live coaching, tools, templates, AI support, and Discord community—perfect if you've already attended a workshop or want ongoing support. Full Package (₱24,900 early bird) combines both: the workshop plus 12 weeks of coaching, taking you from prototype to revenue in 3 months. It's the best value and our recommended path for serious founders."
+      answer: "Workshop Only is the full-day build + validation sprint to get to a prototype and a real-world test plan. Coaching Only is a 12-week implementation support track (live sessions, templates/tools, structured accountability, and community) for people who already have a prototype or clear direction. Full Package combines the Workshop plus the 12-week coaching track so you can go from prototype to implementation with guidance."
     },
     {
       question: "Can I upgrade from Workshop Only to Full Package after Day 1?",
-      answer: "Yes! If you attend the workshop and want to continue with the 12-week coaching program, you can upgrade to the Full Package. We'll credit your workshop payment toward the Full Package, so you'll only pay the difference. This is a great way to start with lower commitment and then invest in the complete journey once you see the value."
+      answer: "Yes. If you join the workshop and decide you want the 12-week coaching track, you can upgrade and your workshop payment is credited toward the Full Package. You'll only pay the difference."
     },
     {
-      question: "What payment plans are available for the Full Package?",
-      answer: "We offer three payment options for the Full Package: Full payment of ₱22,900 (one-time, best value), Two payments of ₱24,800 total (₱9,900 upon registration + ₱14,900 due Feb 1), or Three payments of ₱29,700 total (₱9,900 x 3, due upon registration, Feb 1, and Mar 1). All payments can be made via BPI, Maya/GCash, or PayPal."
+      question: "How does the 12-week coaching work, and what's expected from me?",
+      answer: "Coaching runs for 12 weeks with a weekly cadence and structured assignments. Expect to spend a few focused hours per week executing the plan (customer conversations, iteration, and rollout steps). You'll get guidance, feedback, tools/templates, and community support to keep momentum and avoid \"stuck\" weeks."
     },
     {
-      question: "What happens after the workshop in the Full Package?",
-      answer: "The Full Package includes a complete 3-month journey: Month 1 focuses on validation (refined MVP, paying customers), Month 2 on sales (sales funnel creation), Month 3 on marketing (strategy, content calendar), with Month 4 as a bonus for pitching (optional pitch deck). You'll have 12 weeks of live coaching, access to tools and templates, AI-powered support, and a Discord community of peers and experts throughout."
+      question: "I'm not technical. Can I still build a prototype without coding?",
+      answer: "Yes. The workshop uses no-code and AI-assisted tools to create a prototype you can show and test. The goal is not perfect engineering—the goal is a believable demo that lets you validate demand and de-risk bigger builds."
     },
     {
-      question: "Is the Discord community included in all options?",
-      answer: "The Discord community is included in Coaching Only and Full Package options. Workshop Only participants get access to a community for ongoing support where past participants share insights, but the full Discord community with peers and experts is part of the coaching programs."
+      question: "What if validation is weak or negative—does that mean my idea is dead?",
+      answer: "Not necessarily. Weak signals are still useful data. You'll use the results to decide whether to iterate the offer, change the audience, adjust pricing/packaging, or stop before wasting time and money. The point is to make a clear decision based on evidence, not guesses."
     },
     {
-      question: "What if I already know my idea is good? Why do I need this?",
-      answer: "This program will help you save time and money by validating before launching something that may not be worth building. Even great ideas need real customer validation—this ensures you're building something people actually want and will pay for, not just something that sounds good in theory. The Full Package takes you from validation to revenue, ensuring you're building the right thing."
-    },
-    {
-      question: "I'm not technical. Can I really build a prototype without coding experience?",
-      answer: "Yes, absolutely. We'll use AI tools, and they're more than enough to get sales and test your idea—which is what matters most. If validation is positive, you'll know with certainty that hiring developers and investing time will be the right decision. You don't need to be technical to validate."
-    },
-    {
-      question: "What if I can't finish building my prototype by lunch? Will I still get value?",
-      answer: "Yes. Even if you don't finish building your complete prototype by lunch, you'll still learn the process and methodology. The afternoon session on finding and testing with real customers is equally valuable—if not more so—than the building phase. You'll walk away with a repeatable validation process you can apply anytime."
-    },
-    {
-      question: "What if I don't get positive feedback from the 10+ people? Does that mean my idea is bad?",
-      answer: "Not getting positive feedback is still valuable data. You'll learn from the conversations—their actual pain points, what they're really looking for, and opportunities to pivot. This insight is something you'll never get otherwise, and it could lead you to a better solution than your original idea. No response is still data you can act on."
-    },
-    {
-      question: "Will this work for my industry/niche, or is it only for certain types of products?",
-      answer: "Yes, any idea is welcome. We'll advise you on the best steps based on what you're working on. Carlo has experience coaching hundreds of startups across various industries—B2B SaaS, e-commerce, services, consumer products, and more. The validation principles apply universally, and we'll help you adapt them to your specific situation."
-    },
-    {
-      question: "How much individual attention will I get in a group setting? Can I ask questions about my specific situation?",
-      answer: "Yes, yes, yes. Questions are encouraged throughout the workshop. This is a working session, not a lecture. You can ask questions about your specific situation, and we'll work through challenges together. The group size is kept small (only 20 seats) specifically to ensure you get the attention and guidance you need. In the coaching programs, you get even more personalized attention through live coaching sessions."
-    },
-    {
-      question: "What's your refund policy? What if I can't attend after booking?",
-      answer: "We offer full refunds if you cancel at least 7 days before the workshop date. For cancellations within 7 days, we can transfer your seat to a future workshop or provide a 50% refund. Please contact us as soon as possible if your plans change, and we'll work with you to find the best solution."
+      question: "What's your refund or transfer policy if I can't attend?",
+      answer: "If you cancel at least 7 days before the workshop date, you can request a full refund. Within 7 days, you can transfer your seat to a future workshop or request a partial refund per the stated policy on the checkout/registration page."
     }
   ]
 
@@ -94,10 +74,16 @@ function App() {
                 What to Expect
               </button>
               <button
+                onClick={() => scrollToSection('full-package')}
+                className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
+              >
+                Full Package
+              </button>
+              <button
                 onClick={() => scrollToSection('target')}
                 className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
               >
-                Target
+                Who It's For
               </button>
               <button
                 onClick={() => scrollToSection('faq')}
@@ -109,9 +95,14 @@ function App() {
 
             {/* CTA Button */}
             <div className="flex items-center gap-4">
-              <button className="btn btn-primary hidden sm:inline-flex">
+              <a 
+                href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary hidden sm:inline-flex"
+              >
                 Book a Call
-              </button>
+              </a>
               {/* Mobile menu button (optional for future) */}
               <button className="md:hidden text-gray-700 hover:text-primary">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,30 +158,20 @@ function App() {
               </aside>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 hero-animate hero-fade-in-up-delay-3">
-                <div className="flex-1">
-                  <button 
-                    onClick={() => scrollToSection('choose-your-path')}
-                    className="btn btn-primary w-full sm:w-auto"
-                  >
-                    Get Full Package - ₱24,900
-                  </button>
-                </div>
-                <div className="flex-1">
-                  <button 
-                    onClick={() => scrollToSection('choose-your-path')}
-                    className="btn btn-secondary w-full sm:w-auto"
-                  >
-                    View All Options
-                  </button>
-                </div>
-              </div>
-              <div className="pt-2 hero-animate hero-fade-in-up-delay-3">
+              <div className="flex flex-col sm:flex-row gap-2 pt-4 hero-animate hero-fade-in-up-delay-3">
+                <a 
+                  href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary w-full sm:w-auto"
+                >
+                  Book a Call
+                </a>
                 <button 
                   onClick={() => scrollToSection('choose-your-path')}
-                  className="text-sm text-gray-600 hover:text-primary transition-colors underline"
+                  className="btn btn-secondary w-full sm:w-auto"
                 >
-                  Or start with Workshop Only (₱9,900)
+                  View Programs
                 </button>
               </div>
             </div>
@@ -237,8 +218,8 @@ function App() {
               {/* Image */}
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1000&fit=crop&q=80" 
-                  alt="Founder reflecting on lessons learned" 
+                  src="/Carlo P Valencia.jpg" 
+                  alt="Carlo P Valencia, founder and coach" 
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
@@ -324,9 +305,14 @@ function App() {
                   </div>
 
                   <div className="pt-4">
-                    <button className="btn btn-secondary w-full">
+                    <a 
+                      href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary w-full"
+                    >
                       Reserve Workshop Seat
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -381,9 +367,14 @@ function App() {
                   </div>
 
                   <div className="pt-4">
-                    <button className="btn btn-secondary w-full">
+                    <a 
+                      href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary w-full"
+                    >
                       Book Discovery Call
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -448,9 +439,14 @@ function App() {
                   </div>
 
                   <div className="pt-4">
-                    <button className="btn btn-primary w-full">
+                    <a 
+                      href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary w-full"
+                    >
                       Reserve Full Package
-                    </button>
+                    </a>
                     <p className="text-xs text-gray-600 mt-2 text-center">Payment plans available</p>
                   </div>
                 </div>
@@ -477,7 +473,7 @@ function App() {
             {/* Hero Image */}
             <div className="relative rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop&q=80" 
+                src="/20251127_133335.jpg" 
                 alt="Workshop participants building prototypes and talking to customers" 
                 className="w-full h-auto object-cover"
               />
@@ -569,6 +565,18 @@ function App() {
                 </p>
               </div>
 
+              {/* CTA Button */}
+              <div className="text-center pt-6">
+                <a 
+                  href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary text-lg px-8 py-4 font-bold"
+                >
+                  Get Your Slot for the Workshop
+                </a>
+              </div>
+
               {/* Bottom Message */}
               <div className="text-center space-y-6 pt-8">
                 <p className="text-xl md:text-2xl text-gray-700 font-semibold leading-relaxed">
@@ -594,183 +602,136 @@ function App() {
       </section>
 
       {/* Full Package Program Section */}
-      <section id="full-package" className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-50">
+      <section id="full-package" className="relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=80" 
+            alt="Entrepreneurs collaborating and building prototypes" 
+            className="w-full h-full object-cover opacity-25"
+            style={{ filter: 'sepia(40%) saturate(60%)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/85 via-blue-800/75 to-blue-900/85"></div>
+        </div>
+        
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="space-y-12">
+          <div className="space-y-16">
             {/* Section Heading */}
             <div className="text-center">
-              <h2 className="text-h2 text-gray-900">From Prototype to Revenue in 3 Months</h2>
-              <p className="text-lead text-gray-600 mt-4 max-w-3xl mx-auto">
-                The Full Package combines the workshop with 12 weeks of live coaching to take you from validation to revenue.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                Turn Your Idea Into Paying Customers in 3 Months
+              </h2>
+              <p className="text-xl md:text-2xl text-blue-100 mt-6 max-w-3xl mx-auto leading-relaxed">
+                Stop building in the dark. The Full Package gives you the workshop plus 12 weeks of live coaching to take you from prototype to revenue.
               </p>
             </div>
 
-            {/* Program Timeline */}
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border-l-4 border-primary">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Program Schedule</h3>
-              
+            {/* Two Column Layout */}
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              {/* Left Column - Opening Promise */}
               <div className="space-y-6">
-                {/* Prework */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-24">
-                    <div className="bg-primary-100 text-primary font-bold text-sm px-3 py-2 rounded-lg text-center">
-                      On Signup
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Prework</h4>
-                    <p className="text-body text-gray-700">Design artifacts & AI setup</p>
-                  </div>
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                  <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    Stop Guessing. Start Selling.
+                  </p>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    From struggling founder to revenue-generating business. Get 12 weeks of 1-on-1 support, tools, templates, and a community of peers—everything you need to turn potential customers into paying customers.
+                  </p>
                 </div>
 
-                {/* Day 1 */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-24">
-                    <div className="bg-primary text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
-                      Day 1
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Prototyping Workshop</h4>
-                    <p className="text-body text-gray-700">Prototype, feedback and insights!</p>
-                    <p className="text-sm text-gray-600 mt-1">📍 Launchgarage, January 23, 2026</p>
-                  </div>
+                {/* CTA */}
+                <div className="bg-white rounded-2xl p-8 shadow-xl border border-white/20">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Start Your 3-Month Journey</h3>
+                  <p className="text-lg mb-6 text-gray-700">Get the Full Package for <span className="font-bold text-primary">₱24,900</span></p>
+                  <a 
+                    href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary w-full text-lg py-4 font-bold"
+                  >
+                    Reserve Full Package
+                  </a>
+                  <p className="text-sm text-gray-600 mt-4 text-center">Or <button className="text-primary hover:underline font-semibold">book a discovery call</button> to learn more</p>
                 </div>
+              </div>
 
-                {/* Month 1 */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-24">
-                    <div className="bg-primary-600 text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
-                      Month 1
+              {/* Right Column - Timeline */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">Your Journey to Revenue</h3>
+                
+                <div className="relative">
+                  {/* Vertical Timeline Line */}
+                  <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-300"></div>
+                  
+                  <div className="space-y-8">
+                    {/* Day 1 */}
+                    <div className="relative flex gap-6">
+                      <div className="flex-shrink-0 z-10">
+                        <div className="bg-blue-600 text-white font-bold text-sm px-4 py-2 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                          D1
+                        </div>
+                      </div>
+                      <div className="flex-1 pb-8">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">Build Your Prototype & Find Potential Customers</h4>
+                        <p className="text-body text-gray-700">Full-day workshop where you build a prototype and talk to 10+ real people who have your problem</p>
+                        <p className="text-sm text-gray-600 mt-2">📍 Launchgarage, January 23, 2026</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Validation</h4>
-                    <p className="text-body text-gray-700">Refined MVP. Paying customer(s)</p>
-                  </div>
-                </div>
 
-                {/* Month 2 */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-24">
-                    <div className="bg-primary-600 text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
-                      Month 2
+                    {/* Month 1 */}
+                    <div className="relative flex gap-6">
+                      <div className="flex-shrink-0 z-10">
+                        <div className="bg-blue-600 text-white font-bold text-sm px-4 py-2 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                          M1
+                        </div>
+                      </div>
+                      <div className="flex-1 pb-8">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">Your First Paying Customer</h4>
+                        <p className="text-body text-gray-700">Refine your MVP based on real feedback. Get your first paying customer. Validate that people will actually pay for your solution.</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Sales</h4>
-                    <p className="text-body text-gray-700">Sales funnel creation</p>
-                  </div>
-                </div>
 
-                {/* Month 3 */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-24">
-                    <div className="bg-primary-600 text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
-                      Month 3
+                    {/* Month 2 */}
+                    <div className="relative flex gap-6">
+                      <div className="flex-shrink-0 z-10">
+                        <div className="bg-blue-600 text-white font-bold text-sm px-4 py-2 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                          M2
+                        </div>
+                      </div>
+                      <div className="flex-1 pb-8">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">Build Your Sales Funnel</h4>
+                        <p className="text-body text-gray-700">Create a repeatable system to turn potential customers into paying customers. Scale beyond your first sale.</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Marketing</h4>
-                    <p className="text-body text-gray-700">Marketing strategy. Content calendar</p>
-                  </div>
-                </div>
 
-                {/* Month 4 */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-24">
-                    <div className="bg-gray-200 text-gray-700 font-bold text-sm px-3 py-2 rounded-lg text-center">
-                      Month 4
+                    {/* Month 3 */}
+                    <div className="relative flex gap-6">
+                      <div className="flex-shrink-0 z-10">
+                        <div className="bg-blue-600 text-white font-bold text-sm px-4 py-2 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                          M3
+                        </div>
+                      </div>
+                      <div className="flex-1 pb-8">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">Generate Consistent Revenue</h4>
+                        <p className="text-body text-gray-700">Launch your marketing strategy. Build a content calendar. Turn your validation into a sustainable revenue stream.</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Pitching</h4>
-                    <p className="text-body text-gray-700">Bonus! Pitch Deck (optional)</p>
+
+                    {/* Month 4 */}
+                    <div className="relative flex gap-6">
+                      <div className="flex-shrink-0 z-10">
+                        <div className="bg-gray-400 text-white font-bold text-sm px-4 py-2 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                          M4
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">Pitch to Investors (Optional)</h4>
+                        <p className="text-body text-gray-700">Bonus! Create your pitch deck and prepare to raise funding if that's your goal.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* What's Included */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">What's Included</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-body text-gray-700">Full-day Build Your MVP workshop</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-body text-gray-700">12 weeks of live coaching</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-body text-gray-700">Tools, templates, AI-powered support</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-body text-gray-700">Discord community of peers and experts</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-body text-gray-700">Feedback, validation, go-to-market prep</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Payment Plans</h3>
-                <div className="space-y-4">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-gray-900">Full Payment</span>
-                      <span className="text-lg font-bold text-primary">₱22,900</span>
-                    </div>
-                    <p className="text-sm text-gray-600">One-time payment (best value)</p>
-                  </div>
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-gray-900">Two Payments</span>
-                      <span className="text-lg font-bold text-primary">₱24,800</span>
-                    </div>
-                    <p className="text-sm text-gray-600">₱9,900 upon registration + ₱14,900 due Feb 1</p>
-                  </div>
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-gray-900">Three Payments</span>
-                      <span className="text-lg font-bold text-primary">₱29,700</span>
-                    </div>
-                    <p className="text-sm text-gray-600">₱9,900 x 3 (upon registration, Feb 1, Mar 1)</p>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600 mb-4">Payment Methods:</p>
-                  <div className="space-y-2 text-sm text-gray-700">
-                    <p>• BPI Savings Account # 2609238286</p>
-                    <p>• Maya/GCash: 09399203466</p>
-                    <p>• PayPal: paypal.me/carlopvalencia</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="text-center pt-8">
-              <button className="btn btn-primary text-lg px-8 py-4">
-                Reserve Full Package - ₱24,900
-              </button>
-              <p className="text-sm text-gray-600 mt-4">Or <button className="text-primary hover:underline font-semibold">book a discovery call</button> to learn more</p>
             </div>
           </div>
         </div>
@@ -798,7 +759,7 @@ function App() {
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
                           <img 
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" 
+                            src="/francis-simisim.jpeg" 
                             alt="Francis Simisim" 
                             className="w-full h-full object-cover"
                           />
@@ -825,7 +786,7 @@ function App() {
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
                           <img 
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80" 
+                            src="/maria-korina-bertulfo.jpeg" 
                             alt="Maria Korina Bertulfo" 
                             className="w-full h-full object-cover"
                           />
@@ -855,7 +816,7 @@ function App() {
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
                           <img 
-                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" 
+                            src="/alex-alabiso.jpeg" 
                             alt="Alex Alabiso" 
                             className="w-full h-full object-cover"
                           />
@@ -875,132 +836,147 @@ function App() {
         </div>
       </section>
 
-      {/* Target Section */}
-      <section id="target" className="relative overflow-hidden bg-gray-100">
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      {/* Who It's For Section */}
+      <section id="target" className="relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80" 
+            alt="Background" 
+            className="w-full h-full object-cover opacity-20"
+            style={{ filter: 'sepia(30%) saturate(80%)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-900/80"></div>
+          {/* Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="space-y-12">
             {/* Section Heading */}
             <div className="text-center">
-              <h2 className="text-h2 text-gray-900">Target</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                Is This Right for You?
+              </h2>
+              <p className="text-xl text-blue-100 mt-4 max-w-2xl mx-auto">
+                If you're tired of building in the dark, this is for you.
+              </p>
             </div>
 
-            {/* Three Paths Grid */}
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              {/* Workshop Only */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">🎯</span>
-                  <h3 className="text-lg font-bold text-gray-900">Workshop Only</h3>
+            {/* Who This Is For - Problem/Solution Format */}
+            <div className="space-y-8">
+              {/* Problem Statement */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 md:p-10 border-l-4 border-primary shadow-xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">You're Here Because:</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <p className="text-lg text-gray-700">
+                      <strong className="text-gray-900">You have an idea</strong> but don't know if people will pay for it
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="text-gray-900">You've built before</strong> and launched to silence
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="text-gray-900">You're spending months</strong> building something nobody wants
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <p className="text-lg text-gray-700">
+                      <strong className="text-gray-900">You need validation</strong> before investing more time and money
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="text-gray-900">You want real feedback</strong> from actual customers, not friends
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="text-gray-900">You're ready to commit</strong> to turning your idea into revenue
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-gray-600 mb-4">Perfect for quick validation</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Entrepreneurs testing new offerings</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Want to validate before investing</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Lower commitment entry point</span>
-                  </li>
-                </ul>
               </div>
 
-              {/* Full Package - Featured */}
-              <div className="bg-gradient-to-br from-primary-50 to-primary-100 border-2 border-primary rounded-xl p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">🚀</span>
-                  <h3 className="text-lg font-bold text-gray-900">Full Package</h3>
-                  <span className="text-xs bg-primary text-white px-2 py-0.5 rounded-full">Best Value</span>
+              {/* Solution - Two Paths */}
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Workshop Only */}
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 shadow-xl border-2 border-white/30">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Start with the Workshop</h3>
+                  <p className="text-body text-gray-700 mb-6">
+                    Perfect if you want to validate quickly and see if this approach works for you.
+                  </p>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-body text-gray-700">Get potential customers in one day</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-body text-gray-700">Lower commitment, test the waters</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-body text-gray-700">Upgrade to Full Package anytime</span>
+                    </li>
+                  </ul>
+                  <button 
+                    onClick={() => scrollToSection('choose-your-path')}
+                    className="btn btn-primary w-full"
+                  >
+                    Learn More
+                  </button>
                 </div>
-                <p className="text-sm text-gray-700 mb-4 font-semibold">Complete journey from prototype to revenue</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Serious founders ready to commit</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Want ongoing support & coaching</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Corporate innovators & funded startups</span>
-                  </li>
-                </ul>
+
+                {/* Full Package */}
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 shadow-xl border-2 border-primary relative">
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best Value</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Go All In with Full Package</h3>
+                  <p className="text-body text-gray-700 mb-6">
+                    For serious founders who want to go from idea to revenue in 3 months.
+                  </p>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-body text-gray-700">Workshop + 12 weeks of coaching</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-body text-gray-700">Turn potential customers into paying customers</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-body text-gray-700">Complete journey to revenue</span>
+                    </li>
+                  </ul>
+                  <button 
+                    onClick={() => scrollToSection('full-package')}
+                    className="btn btn-primary w-full"
+                  >
+                    Learn More
+                  </button>
+                </div>
               </div>
 
-              {/* Coaching Only */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">💼</span>
-                  <h3 className="text-lg font-bold text-gray-900">Coaching Only</h3>
-                </div>
-                <p className="text-sm text-gray-600 mb-4">12 weeks of ongoing support</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Already attended a workshop</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Need ongoing guidance & support</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Want community & expert access</span>
-                  </li>
-                </ul>
+              {/* Who This Isn't For - Simplified */}
+              <div className="text-center">
+                <p className="text-lg text-blue-100">
+                  <strong className="text-white">Not for:</strong> People still looking for ideas, those who won't do the work, or certificate collectors.
+                </p>
               </div>
-            </div>
-
-            {/* Who This Isn't For */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border-2 border-gray-200 max-w-2xl mx-auto mt-8">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-2xl">❌</span>
-                <h3 className="text-h4 text-gray-900">Who This Isn't For</h3>
-              </div>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span className="text-body text-gray-600">Junior founders still looking for ideas</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span className="text-body text-gray-600">People who won't do the work during the workshop</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span className="text-body text-gray-600">Certificate collectors</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -1047,12 +1023,22 @@ function App() {
             
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <button className="btn btn-primary text-lg px-8 py-4">
+              <a 
+                href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary text-lg px-8 py-4"
+              >
                 Get Your Slot for the Workshop
-              </button>
-              <button className="btn btn-secondary text-lg px-8 py-4">
+              </a>
+              <a 
+                href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary text-lg px-8 py-4"
+              >
                 Book a Call
-              </button>
+              </a>
             </div>
           </div>
         </div>
