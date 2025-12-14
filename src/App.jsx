@@ -651,7 +651,7 @@ function App() {
                   >
                     Reserve Full Package
                   </a>
-                  <p className="text-sm text-gray-600 mt-4 text-center">Or <button className="text-primary hover:underline font-semibold">book a discovery call</button> to learn more</p>
+                  <p className="text-sm text-gray-600 mt-4 text-center">Or <a href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">book a discovery call</a> to learn more</p>
                 </div>
               </div>
 
