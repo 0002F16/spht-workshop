@@ -53,9 +53,13 @@ function App() {
             <div className="flex-shrink-0">
               <button 
                 onClick={() => scrollToSection('hero')}
-                className="text-xl lg:text-2xl font-bold text-gray-900 hover:text-primary transition-colors"
+                className="flex items-center"
               >
-                Validate<span className="text-primary">Workshop</span>
+                <img 
+                  src="/logo.jpg" 
+                  alt="Logo" 
+                  className="h-8 w-8 lg:h-10 lg:w-10 object-contain"
+                />
               </button>
             </div>
 
@@ -140,57 +144,17 @@ function App() {
                 </ul>
               </aside>
 
-              {/* Second Aside - Event Details */}
-              <aside className="bg-gray-50 rounded-xl p-6 border border-gray-200 hero-animate hero-fade-in-up-delay-2">
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <div>
-                      <span className="text-sm font-semibold text-gray-900">Date:</span>
-                      <span className="text-sm text-gray-700 ml-2">Jan 23, 2026</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <div>
-                      <span className="text-sm font-semibold text-gray-900">Location:</span>
-                      <span className="text-sm text-gray-700 ml-2">Launchgarage, Quezon City</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <span className="text-sm font-semibold text-gray-900">Format:</span>
-                      <span className="text-sm text-gray-700 ml-2">Full-day working session (the opposite of a lecture. Bring your laptops)</span>
-                    </div>
-                  </div>
-                </div>
-              </aside>
-
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 hero-animate hero-fade-in-up-delay-3">
                 <div className="flex-1">
                   <button className="btn btn-primary w-full sm:w-auto">
                     Register for Jan 23 Workshop
                   </button>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Ready to build? Save your seat now <span className="font-semibold text-primary">only 12 left</span>
-                  </p>
                 </div>
                 <div className="flex-1">
                   <button className="btn btn-secondary w-full sm:w-auto">
                     Book a Discovery Call
                   </button>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Unsure? Book us a call!
-                  </p>
                 </div>
               </div>
             </div>
@@ -225,27 +189,41 @@ function App() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-600 rounded-full mix-blend-multiply filter blur-3xl"></div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="space-y-8">
-            {/* Opening Statement */}
-            <div className="space-y-6">
-              <p className="text-lead text-gray-200 leading-relaxed">
-                Most founders waste months and spend millions building - or paying people to build the wrong thing. They talk to people, hear "that's a great idea," then launch to crickets.
-              </p>
-              
-              <p className="text-xl md:text-2xl text-white font-medium leading-relaxed">
-                I burned <span className="text-primary-400 font-bold">$200K</span> doing exactly that. Now I want to teach you how to avoid making the same mistake.
-              </p>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="space-y-12">
+            {/* Section Header */}
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">The $200K Lesson</h2>
+            </div>
+
+            {/* Content with Image */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Image */}
+              <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1000&fit=crop&q=80" 
+                  alt="Founder reflecting on lessons learned" 
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
+              </div>
+
+              {/* Text Content */}
+              <div className="space-y-6">
+                <p className="text-lead text-gray-200 leading-relaxed">
+                  <strong className="text-white">My name is Carlo. For over 10 years, I've watched hundreds of founders across industries burn years and millions building the wrong thing</strong> — because they validated with friends, not customers. They'd hear "great idea," raise money, build for months, then launch to silence.
+                </p>
+                
+                <p className="text-xl md:text-2xl text-white font-medium leading-relaxed">
+                  I burned <span className="text-primary-400 font-bold">$200K</span> doing exactly that. Now I'll teach you how to avoid the same mistake.
+                </p>
+              </div>
             </div>
 
             {/* Value Proposition */}
             <div className="space-y-4 pt-6">
-              <p className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                <span className="text-primary-400">On January 23, you'll compress that 6 months into one day.</span> Build a clickable prototype by lunch. Test it with 10+ real people by 5pm. Walk out knowing if your idea has legs or needs to pivot.
-              </p>
-              
-              <p className="text-lg md:text-xl text-gray-300 font-medium pt-2">
-                No developers. No investors. Just ChatGPT, a laptop, and one focused day.
+              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+                That <span className="text-primary-400 font-bold">$200K</span> mistake taught me the <span className="text-primary-400 font-bold">validation process</span> that could have saved it. I've refined it over <span className="text-primary-400 font-bold">10 years</span> of coaching founders across industries. Now I'm teaching it in <span className="text-primary-400 font-bold">one focused day</span>.
               </p>
             </div>
 
@@ -281,7 +259,39 @@ function App() {
                     </p>
                   </div>
                   
-                  <div className="pt-2">
+                  {/* Event Details */}
+                  <div className="pt-4 border-t border-gray-200 space-y-3">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <div>
+                        <span className="text-sm font-semibold text-gray-900">Date:</span>
+                        <span className="text-sm text-gray-700 ml-2">Jan 23, 2026</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <div>
+                        <span className="text-sm font-semibold text-gray-900">Location:</span>
+                        <span className="text-sm text-gray-700 ml-2">Launchgarage, Quezon City</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      <div>
+                        <span className="text-sm font-semibold text-gray-900">Format:</span>
+                        <span className="text-sm text-gray-700 ml-2">Full-day working session (the opposite of a lecture. Bring your laptops)</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4">
                     <button className="btn btn-primary w-full md:w-auto">
                       Reserve Your Spot
                     </button>
