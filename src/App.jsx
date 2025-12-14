@@ -239,7 +239,7 @@ function App() {
 
             {/* Value Proposition */}
             <div className="space-y-4 pt-6">
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+              <p className="text-2xl md:text-3xl lg:text-4xl text-gray-200 leading-relaxed">
                 That <span className="text-primary-400 font-bold">$200K</span> mistake taught me the <span className="text-primary-400 font-bold">validation process</span> that could have saved it. I've refined it over <span className="text-primary-400 font-bold">10 years</span> of coaching founders across industries. Now I'm teaching it in <span className="text-primary-400 font-bold">one focused day</span>.
               </p>
             </div>
