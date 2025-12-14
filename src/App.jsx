@@ -3,8 +3,28 @@ import FAQItem from './components/FAQItem'
 function App() {
   const faqs = [
     {
+      question: "What's the difference between Workshop Only, Coaching Only, and Full Package?",
+      answer: "Workshop Only (₱9,900 early bird) is a full-day session where you build a prototype and test it with real people. Coaching Only (₱19,900 early bird) includes 12 weeks of live coaching, tools, templates, AI support, and Discord community—perfect if you've already attended a workshop or want ongoing support. Full Package (₱24,900 early bird) combines both: the workshop plus 12 weeks of coaching, taking you from prototype to revenue in 3 months. It's the best value and our recommended path for serious founders."
+    },
+    {
+      question: "Can I upgrade from Workshop Only to Full Package after Day 1?",
+      answer: "Yes! If you attend the workshop and want to continue with the 12-week coaching program, you can upgrade to the Full Package. We'll credit your workshop payment toward the Full Package, so you'll only pay the difference. This is a great way to start with lower commitment and then invest in the complete journey once you see the value."
+    },
+    {
+      question: "What payment plans are available for the Full Package?",
+      answer: "We offer three payment options for the Full Package: Full payment of ₱22,900 (one-time, best value), Two payments of ₱24,800 total (₱9,900 upon registration + ₱14,900 due Feb 1), or Three payments of ₱29,700 total (₱9,900 x 3, due upon registration, Feb 1, and Mar 1). All payments can be made via BPI, Maya/GCash, or PayPal."
+    },
+    {
+      question: "What happens after the workshop in the Full Package?",
+      answer: "The Full Package includes a complete 3-month journey: Month 1 focuses on validation (refined MVP, paying customers), Month 2 on sales (sales funnel creation), Month 3 on marketing (strategy, content calendar), with Month 4 as a bonus for pitching (optional pitch deck). You'll have 12 weeks of live coaching, access to tools and templates, AI-powered support, and a Discord community of peers and experts throughout."
+    },
+    {
+      question: "Is the Discord community included in all options?",
+      answer: "The Discord community is included in Coaching Only and Full Package options. Workshop Only participants get access to a community for ongoing support where past participants share insights, but the full Discord community with peers and experts is part of the coaching programs."
+    },
+    {
       question: "What if I already know my idea is good? Why do I need this?",
-      answer: "This workshop will help you save time and money by validating before launching something that may not be worth building. Even great ideas need real customer validation—this ensures you're building something people actually want and will pay for, not just something that sounds good in theory."
+      answer: "This program will help you save time and money by validating before launching something that may not be worth building. Even great ideas need real customer validation—this ensures you're building something people actually want and will pay for, not just something that sounds good in theory. The Full Package takes you from validation to revenue, ensuring you're building the right thing."
     },
     {
       question: "I'm not technical. Can I really build a prototype without coding experience?",
@@ -23,12 +43,8 @@ function App() {
       answer: "Yes, any idea is welcome. We'll advise you on the best steps based on what you're working on. Carlo has experience coaching hundreds of startups across various industries—B2B SaaS, e-commerce, services, consumer products, and more. The validation principles apply universally, and we'll help you adapt them to your specific situation."
     },
     {
-      question: "What happens after the workshop? Do I get ongoing support or am I on my own?",
-      answer: "After the workshop, you can choose to book us for our coaching program for deeper, ongoing support. We also have a community for ongoing support where past participants continue to share insights and get help. You're not alone after this session ends—we're here to support your journey."
-    },
-    {
       question: "How much individual attention will I get in a group setting? Can I ask questions about my specific situation?",
-      answer: "Yes, yes, yes. Questions are encouraged throughout the workshop. This is a working session, not a lecture. You can ask questions about your specific situation, and we'll work through challenges together. The group size is kept small (only 20 seats) specifically to ensure you get the attention and guidance you need."
+      answer: "Yes, yes, yes. Questions are encouraged throughout the workshop. This is a working session, not a lecture. You can ask questions about your specific situation, and we'll work through challenges together. The group size is kept small (only 20 seats) specifically to ensure you get the attention and guidance you need. In the coaching programs, you get even more personalized attention through live coaching sessions."
     },
     {
       question: "What's your refund policy? What if I can't attend after booking?",
@@ -65,6 +81,12 @@ function App() {
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center gap-8">
+              <button
+                onClick={() => scrollToSection('choose-your-path')}
+                className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
+              >
+                Programs
+              </button>
               <button
                 onClick={() => scrollToSection('what-to-expect')}
                 className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
@@ -117,7 +139,7 @@ function App() {
 
               {/* Description */}
               <p className="text-lead text-gray-700 max-w-2xl hero-animate hero-fade-in-up-delay-1">
-                A full-day working session where you build a usable prototype and put it in front of real people—so you go home with actual responses (or clear non-response you can act on).
+                From prototype to revenue in 3 months. A full-day workshop plus 12 weeks of coaching to validate your idea, build your MVP, and generate revenue at the earliest possible time.
               </p>
 
               {/* First Aside - Benefits */}
@@ -147,15 +169,29 @@ function App() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 hero-animate hero-fade-in-up-delay-3">
                 <div className="flex-1">
-                  <button className="btn btn-primary w-full sm:w-auto">
-                    Register for Jan 23 Workshop
+                  <button 
+                    onClick={() => scrollToSection('choose-your-path')}
+                    className="btn btn-primary w-full sm:w-auto"
+                  >
+                    Get Full Package - ₱24,900
                   </button>
                 </div>
                 <div className="flex-1">
-                  <button className="btn btn-secondary w-full sm:w-auto">
-                    Book a Discovery Call
+                  <button 
+                    onClick={() => scrollToSection('choose-your-path')}
+                    className="btn btn-secondary w-full sm:w-auto"
+                  >
+                    View All Options
                   </button>
                 </div>
+              </div>
+              <div className="pt-2 hero-animate hero-fade-in-up-delay-3">
+                <button 
+                  onClick={() => scrollToSection('choose-your-path')}
+                  className="text-sm text-gray-600 hover:text-primary transition-colors underline"
+                >
+                  Or start with Workshop Only (₱9,900)
+                </button>
               </div>
             </div>
 
@@ -226,175 +262,516 @@ function App() {
                 That <span className="text-primary-400 font-bold">$200K</span> mistake taught me the <span className="text-primary-400 font-bold">validation process</span> that could have saved it. I've refined it over <span className="text-primary-400 font-bold">10 years</span> of coaching founders across industries. Now I'm teaching it in <span className="text-primary-400 font-bold">one focused day</span>.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Pricing Aside */}
-            <aside className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl mt-12">
-              <div className="flex items-start gap-4">
-                <div className="text-4xl">🎯</div>
-                <div className="flex-1 space-y-6">
+      {/* Choose Your Path Section */}
+      <section id="choose-your-path" className="relative overflow-hidden bg-white">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="space-y-12">
+            {/* Section Heading */}
+            <div className="text-center">
+              <h2 className="text-h2 text-gray-900">Choose Your Path</h2>
+              <p className="text-lead text-gray-600 mt-4 max-w-3xl mx-auto">
+                Three ways to validate and launch your idea. Pick the path that fits your needs and budget.
+              </p>
+            </div>
+
+            {/* Three Column Comparison */}
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Workshop Only */}
+              <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="space-y-6">
                   <div>
-                    <a href="#" className="inline-block">
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 hover:text-primary transition-colors">
-                        Save Your Seat - Jan 23
-                      </h3>
-                    </a>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Workshop Only</h3>
+                    <p className="text-body text-gray-600">Perfect for quick validation</p>
                   </div>
                   
-                  <div className="space-y-3">
-                    <div className="flex flex-wrap items-baseline gap-3">
-                      <span className="text-lg md:text-xl font-semibold text-gray-700">Early Bird:</span>
-                      <span className="text-2xl md:text-3xl font-bold text-primary">₱9,900</span>
-                      <span className="text-sm text-gray-500">(ends Jan 10)</span>
-                    </div>
-                    
+                  <div className="space-y-2">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-lg md:text-xl font-semibold text-gray-700">Regular:</span>
-                      <span className="text-xl md:text-2xl font-bold text-gray-900 line-through">₱14,900</span>
+                      <span className="text-3xl font-bold text-primary">₱9,900</span>
+                      <span className="text-sm text-gray-500">Early Bird</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-semibold text-gray-400 line-through">₱14,900</span>
+                      <span className="text-sm text-gray-500">Regular</span>
                     </div>
                   </div>
-                  
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-base md:text-lg font-semibold text-gray-900">
-                      Only <span className="text-primary">20 seats</span> available
-                    </p>
+
+                  <div className="border-t border-gray-200 pt-6 space-y-4">
+                    <p className="font-semibold text-gray-900">What's Included:</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Full-day Build Your MVP workshop</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Prototype building & validation</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Community access</span>
+                      </li>
+                    </ul>
                   </div>
-                  
-                  {/* Event Details */}
-                  <div className="pt-4 border-t border-gray-200 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <div>
-                        <span className="text-sm font-semibold text-gray-900">Date:</span>
-                        <span className="text-sm text-gray-700 ml-2">Jan 23, 2026</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <div>
-                        <span className="text-sm font-semibold text-gray-900">Location:</span>
-                        <span className="text-sm text-gray-700 ml-2">Launchgarage, Quezon City</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      <div>
-                        <span className="text-sm font-semibold text-gray-900">Format:</span>
-                        <span className="text-sm text-gray-700 ml-2">Full-day working session (the opposite of a lecture. Bring your laptops)</span>
-                      </div>
-                    </div>
-                  </div>
-                  
+
                   <div className="pt-4">
-                    <button className="btn btn-primary w-full md:w-auto">
-                      Reserve Your Spot
+                    <button className="btn btn-secondary w-full">
+                      Reserve Workshop Seat
                     </button>
                   </div>
                 </div>
               </div>
-            </aside>
+
+              {/* Coaching Only */}
+              <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Coaching Only</h3>
+                    <p className="text-body text-gray-600">12 weeks of ongoing support</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-primary">₱19,900</span>
+                      <span className="text-sm text-gray-500">Early Bird</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-semibold text-gray-400 line-through">₱29,900</span>
+                      <span className="text-sm text-gray-500">Regular</span>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-gray-200 pt-6 space-y-4">
+                    <p className="font-semibold text-gray-900">What's Included:</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">12 weeks of live coaching</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Tools, templates, AI-powered support</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Discord community</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Feedback, validation, go-to-market prep</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4">
+                    <button className="btn btn-secondary w-full">
+                      Book Discovery Call
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Package - Featured */}
+              <div className="bg-gradient-to-br from-primary-50 to-primary-100 border-2 border-primary rounded-2xl p-8 shadow-lg relative">
+                <div className="absolute top-4 right-4">
+                  <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best Value</span>
+                </div>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Full Package</h3>
+                    <p className="text-body text-gray-700">From prototype to revenue in 3 months</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-primary">₱24,900</span>
+                      <span className="text-sm text-gray-600">Early Bird</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-semibold text-gray-400 line-through">₱34,900</span>
+                      <span className="text-sm text-gray-600">Regular</span>
+                    </div>
+                    <p className="text-xs text-gray-600 mt-1">Save ₱10,000 vs buying separately</p>
+                  </div>
+
+                  <div className="border-t border-primary-200 pt-6 space-y-4">
+                    <p className="font-semibold text-gray-900">Everything Included:</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Full-day Build Your MVP workshop</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">12 weeks of live coaching</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Tools, templates, AI-powered support</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Discord community of peers & experts</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">3-month journey: Validation → Sales → Marketing</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4">
+                    <button className="btn btn-primary w-full">
+                      Reserve Full Package
+                    </button>
+                    <p className="text-xs text-gray-600 mt-2 text-center">Payment plans available</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What to Expect Section */}
       <section id="what-to-expect" className="relative overflow-hidden bg-gray-50">
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="space-y-16">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+          <div className="space-y-8">
             {/* Section Heading */}
             <div className="text-center">
-              <h2 className="text-h2 text-gray-900">What to Expect</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+                Get Potential Customers in One Day
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-600 mt-4 max-w-3xl mx-auto leading-relaxed">
+                Build your prototype. Find real people who have your problem. Talk to them. By 5pm, you'll have potential customers ready to pay.
+              </p>
             </div>
 
-            {/* Morning Section */}
-            <div className="space-y-8">
-              {/* Morning Heading */}
-              <div className="flex items-center gap-3">
-                <span className="text-3xl">🌅</span>
-                <h3 className="text-h3 text-gray-900">Morning (9am-12pm)</h3>
-              </div>
-
-              {/* Morning Image */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop&q=80" 
-                  alt="Clickable prototype being built with AI tools" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Morning Content */}
-              <div className="space-y-4 max-w-3xl">
-                <h4 className="text-h4 text-gray-900">Build Your Prototype</h4>
-                <p className="text-body text-gray-700">
-                  Define who you're building for and what problem you're solving. Sketch your solution. Then build a clickable prototype using ChatGPT and AI tools like v0 or Lovable.
-                </p>
-                <p className="text-lg font-semibold text-gray-900">
-                  <strong>No code. No design skills.</strong> By lunch, you'll have something you can show people.
-                </p>
-              </div>
+            {/* Hero Image */}
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop&q=80" 
+                alt="Workshop participants building prototypes and talking to customers" 
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
             </div>
 
-            {/* Afternoon Section */}
-            <div className="space-y-8">
-              {/* Afternoon Heading */}
-              <div className="flex items-center gap-3">
-                <span className="text-3xl">🔍</span>
-                <h3 className="text-h3 text-gray-900">Afternoon (1pm-5pm)</h3>
-              </div>
-
-              {/* Afternoon Content */}
-              <div className="space-y-4 max-w-3xl">
-                <h4 className="text-h4 text-gray-900">Test With Real People</h4>
-                <p className="text-body text-gray-700">
-                  Here's the part most founders skip: we'll show you how to use AI to find 10+ people online who are complaining about the exact problem you're solving.
-                </p>
-                <div className="flex flex-wrap gap-3 text-body text-gray-700">
-                  <span className="font-semibold text-gray-900">Reddit threads.</span>
-                  <span className="font-semibold text-gray-900">Twitter rants.</span>
-                  <span className="font-semibold text-gray-900">FB groups.</span>
-                  <span className="font-semibold text-gray-900">LinkedIn posts.</span>
+            {/* Morning and Afternoon - Two Columns */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Morning Section */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="relative rounded-lg overflow-hidden mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&q=80" 
+                    alt="Building prototype with AI tools" 
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
-                <p className="text-body text-gray-700">
-                  We'll teach you how to search for them, what questions to ask, and how to tell if they actually care.
-                </p>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Morning (9am-12pm)</h3>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">Build Something Customers Can See</h4>
+                <ul className="space-y-3 text-body text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Define your target customer & their problem</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Build a clickable prototype with AI tools</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span><strong className="text-gray-900">No code needed.</strong> By lunch, you'll have something real to show potential customers</span>
+                  </li>
+                </ul>
               </div>
 
-              {/* Afternoon Image */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=600&fit=crop&q=80" 
-                  alt="Reddit thread showing real customer complaints" 
-                  className="w-full h-auto object-cover"
-                />
-                {/* Blur overlay to suggest anonymization */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/10 to-gray-900/20"></div>
+              {/* Afternoon Section */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="relative rounded-lg overflow-hidden mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop&q=80" 
+                    alt="Finding and talking to real customers online" 
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Afternoon (1pm-5pm)</h3>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">Find & Talk to People Who Will Pay</h4>
+                <ul className="space-y-3 text-body text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Use AI to find 10+ people actively complaining about your exact problem</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Learn how to start conversations that lead to sales</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Get real responses from people who might pay—or clear signals they won't</span>
+                  </li>
+                </ul>
+                <p className="text-sm text-gray-600 mt-3">
+                  (Reddit, Twitter, FB groups, LinkedIn posts)
+                </p>
               </div>
             </div>
 
-            {/* Aside Card */}
-            <aside className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border-l-4 border-primary max-w-4xl mx-auto">
-              <div className="flex items-start gap-4">
-                <div className="text-3xl flex-shrink-0">✅</div>
-                <div className="space-y-4">
-                  <p className="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
-                    By 5pm, you'll have real feedback from real people.
+            {/* Outcomes Section */}
+            <div className="space-y-8 max-w-4xl mx-auto">
+              {/* Headline */}
+              <div className="text-center">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                  By 5pm, You'll Have:
+                </h3>
+              </div>
+
+              {/* Outcomes List */}
+              <div className="space-y-4 text-center">
+                <p className="text-2xl md:text-3xl text-gray-800 leading-relaxed">
+                  <span className="font-bold text-primary">A prototype</span> you can show to real people
+                </p>
+                <p className="text-2xl md:text-3xl text-gray-800 leading-relaxed">
+                  <span className="font-bold text-primary">10+ potential customers</span> who want your solution
+                </p>
+                <p className="text-2xl md:text-3xl text-gray-800 leading-relaxed">
+                  <span className="font-bold text-primary">Real conversations</span> with people who might pay
+                </p>
+                <p className="text-2xl md:text-3xl text-gray-800 leading-relaxed">
+                  <span className="font-bold text-primary">Clear next steps:</span> what to change, who to target, or when to pivot
+                </p>
+              </div>
+
+              {/* Bottom Message */}
+              <div className="text-center space-y-6 pt-8">
+                <p className="text-xl md:text-2xl text-gray-700 font-semibold leading-relaxed">
+                  <span className="text-gray-900">Real people with real problems</span> who might pay you—<span className="text-gray-500 italic">not friends saying "that sounds interesting."</span>
+                </p>
+                <div className="pt-6 border-t-2 border-gray-300">
+                  <p className="text-lg md:text-xl text-gray-700 mb-3 font-medium">
+                    Want to turn <span className="text-primary font-bold">potential customers</span> into <span className="text-primary font-bold">paying customers</span>?
                   </p>
                   <p className="text-lg text-gray-700">
-                    Not your friends. Not "that sounds interesting" replies. <strong className="text-gray-900">Actual validation data.</strong>
-                  </p>
-                  <p className="text-body text-gray-700 pt-2">
-                    You follow along, or just watch. Up to you. But by the end, you'll know how to do this yourself.
+                    The Full Package includes 12 weeks of coaching to take you from prototype to revenue in 3 months. <button 
+                      onClick={() => scrollToSection('full-package')}
+                      className="text-primary hover:text-primary-700 underline font-bold text-lg"
+                    >
+                      Learn more →
+                    </button>
                   </p>
                 </div>
               </div>
-            </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Full Package Program Section */}
+      <section id="full-package" className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-50">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="space-y-12">
+            {/* Section Heading */}
+            <div className="text-center">
+              <h2 className="text-h2 text-gray-900">From Prototype to Revenue in 3 Months</h2>
+              <p className="text-lead text-gray-600 mt-4 max-w-3xl mx-auto">
+                The Full Package combines the workshop with 12 weeks of live coaching to take you from validation to revenue.
+              </p>
+            </div>
+
+            {/* Program Timeline */}
+            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border-l-4 border-primary">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">Program Schedule</h3>
+              
+              <div className="space-y-6">
+                {/* Prework */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24">
+                    <div className="bg-primary-100 text-primary font-bold text-sm px-3 py-2 rounded-lg text-center">
+                      On Signup
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1">Prework</h4>
+                    <p className="text-body text-gray-700">Design artifacts & AI setup</p>
+                  </div>
+                </div>
+
+                {/* Day 1 */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24">
+                    <div className="bg-primary text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
+                      Day 1
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1">Prototyping Workshop</h4>
+                    <p className="text-body text-gray-700">Prototype, feedback and insights!</p>
+                    <p className="text-sm text-gray-600 mt-1">📍 Launchgarage, January 23, 2026</p>
+                  </div>
+                </div>
+
+                {/* Month 1 */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24">
+                    <div className="bg-primary-600 text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
+                      Month 1
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1">Validation</h4>
+                    <p className="text-body text-gray-700">Refined MVP. Paying customer(s)</p>
+                  </div>
+                </div>
+
+                {/* Month 2 */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24">
+                    <div className="bg-primary-600 text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
+                      Month 2
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1">Sales</h4>
+                    <p className="text-body text-gray-700">Sales funnel creation</p>
+                  </div>
+                </div>
+
+                {/* Month 3 */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24">
+                    <div className="bg-primary-600 text-white font-bold text-sm px-3 py-2 rounded-lg text-center">
+                      Month 3
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1">Marketing</h4>
+                    <p className="text-body text-gray-700">Marketing strategy. Content calendar</p>
+                  </div>
+                </div>
+
+                {/* Month 4 */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24">
+                    <div className="bg-gray-200 text-gray-700 font-bold text-sm px-3 py-2 rounded-lg text-center">
+                      Month 4
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1">Pitching</h4>
+                    <p className="text-body text-gray-700">Bonus! Pitch Deck (optional)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* What's Included */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">What's Included</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-body text-gray-700">Full-day Build Your MVP workshop</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-body text-gray-700">12 weeks of live coaching</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-body text-gray-700">Tools, templates, AI-powered support</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-body text-gray-700">Discord community of peers and experts</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-body text-gray-700">Feedback, validation, go-to-market prep</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Payment Plans</h3>
+                <div className="space-y-4">
+                  <div className="border border-gray-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-gray-900">Full Payment</span>
+                      <span className="text-lg font-bold text-primary">₱22,900</span>
+                    </div>
+                    <p className="text-sm text-gray-600">One-time payment (best value)</p>
+                  </div>
+                  <div className="border border-gray-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-gray-900">Two Payments</span>
+                      <span className="text-lg font-bold text-primary">₱24,800</span>
+                    </div>
+                    <p className="text-sm text-gray-600">₱9,900 upon registration + ₱14,900 due Feb 1</p>
+                  </div>
+                  <div className="border border-gray-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-gray-900">Three Payments</span>
+                      <span className="text-lg font-bold text-primary">₱29,700</span>
+                    </div>
+                    <p className="text-sm text-gray-600">₱9,900 x 3 (upon registration, Feb 1, Mar 1)</p>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <p className="text-sm text-gray-600 mb-4">Payment Methods:</p>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p>• BPI Savings Account # 2609238286</p>
+                    <p>• Maya/GCash: 09399203466</p>
+                    <p>• PayPal: paypal.me/carlopvalencia</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center pt-8">
+              <button className="btn btn-primary text-lg px-8 py-4">
+                Reserve Full Package - ₱24,900
+              </button>
+              <p className="text-sm text-gray-600 mt-4">Or <button className="text-primary hover:underline font-semibold">book a discovery call</button> to learn more</p>
+            </div>
           </div>
         </div>
       </section>
@@ -507,63 +884,123 @@ function App() {
               <h2 className="text-h2 text-gray-900">Target</h2>
             </div>
 
-            {/* Two Column Grid */}
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Who This Is For */}
-              <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">✅</span>
-                  <h3 className="text-h4 text-gray-900">Who This Is For</h3>
+            {/* Three Paths Grid */}
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Workshop Only */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl">🎯</span>
+                  <h3 className="text-lg font-bold text-gray-900">Workshop Only</h3>
                 </div>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <p className="text-sm text-gray-600 mb-4">Perfect for quick validation</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-body text-gray-700">Entrepreneurs testing new offerings before investing</span>
+                    <span className="text-sm text-gray-700">Entrepreneurs testing new offerings</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-body text-gray-700">Corporate innovators who need proof before building</span>
+                    <span className="text-sm text-gray-700">Want to validate before investing</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-body text-gray-700">Serious founders tired of guessing what customers want</span>
+                    <span className="text-sm text-gray-700">Lower commitment entry point</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Who This Isn't For */}
-              <div className="bg-white rounded-xl p-8 shadow-sm border-2 border-gray-200">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">❌</span>
-                  <h3 className="text-h4 text-gray-900">Who This Isn't For</h3>
+              {/* Full Package - Featured */}
+              <div className="bg-gradient-to-br from-primary-50 to-primary-100 border-2 border-primary rounded-xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl">🚀</span>
+                  <h3 className="text-lg font-bold text-gray-900">Full Package</h3>
+                  <span className="text-xs bg-primary text-white px-2 py-0.5 rounded-full">Best Value</span>
                 </div>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <p className="text-sm text-gray-700 mb-4 font-semibold">Complete journey from prototype to revenue</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-body text-gray-600">Junior founders still looking for ideas</span>
+                    <span className="text-sm text-gray-700">Serious founders ready to commit</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-body text-gray-600">People who won't do the work during the workshop</span>
+                    <span className="text-sm text-gray-700">Want ongoing support & coaching</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-body text-gray-600">Certificate collectors</span>
+                    <span className="text-sm text-gray-700">Corporate innovators & funded startups</span>
                   </li>
                 </ul>
               </div>
+
+              {/* Coaching Only */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl">💼</span>
+                  <h3 className="text-lg font-bold text-gray-900">Coaching Only</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-4">12 weeks of ongoing support</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm text-gray-700">Already attended a workshop</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm text-gray-700">Need ongoing guidance & support</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm text-gray-700">Want community & expert access</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Who This Isn't For */}
+            <div className="bg-white rounded-xl p-8 shadow-sm border-2 border-gray-200 max-w-2xl mx-auto mt-8">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-2xl">❌</span>
+                <h3 className="text-h4 text-gray-900">Who This Isn't For</h3>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-body text-gray-600">Junior founders still looking for ideas</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-body text-gray-600">People who won't do the work during the workshop</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-body text-gray-600">Certificate collectors</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -596,74 +1033,27 @@ function App() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
         </div>
         
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="text-center space-y-8">
-            {/* Main Headline */}
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Stop Guessing. Start Validating.
-              </h2>
-              <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto leading-relaxed">
-                Save 6 months and avoid wasting $200K. Get real feedback from real people in one focused day—not empty promises from friends.
-              </p>
-            </div>
-
-            {/* Value Props */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl mb-3">⚡</div>
-                <p className="text-lg font-semibold text-white">Build by Lunch</p>
-                <p className="text-sm text-primary-100 mt-2">Clickable prototype ready in 3 hours</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl mb-3">🎯</div>
-                <p className="text-lg font-semibold text-white">Test by 5pm</p>
-                <p className="text-sm text-primary-100 mt-2">10+ real responses the same day</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl mb-3">💰</div>
-                <p className="text-lg font-semibold text-white">Save Everything</p>
-                <p className="text-sm text-primary-100 mt-2">Time, money, and the wrong direction</p>
-              </div>
-            </div>
-
-            {/* Pricing & Urgency */}
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl max-w-2xl mx-auto mt-8">
-              <div className="space-y-6">
-                <div>
-                  <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Early Bird Pricing</p>
-                  <div className="flex items-baseline justify-center gap-3 flex-wrap">
-                    <span className="text-4xl md:text-5xl font-bold text-primary">₱9,900</span>
-                    <span className="text-xl md:text-2xl font-bold text-gray-400 line-through">₱14,900</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-2">Ends January 10 • Jan 23, 2026 Workshop</p>
-                </div>
-                
-                <div className="border-t border-gray-200 pt-6">
-                  <div className="flex items-center justify-center gap-2 mb-6">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                    </svg>
-                    <p className="text-lg font-bold text-gray-900">
-                      Only <span className="text-primary">12 seats left</span>
-                    </p>
-                  </div>
-                  
-                  <button className="btn btn-primary w-full text-lg py-4 text-xl font-bold">
-                    Reserve Your Seat Now
-                  </button>
-                  
-                  <p className="text-sm text-gray-600 mt-4">
-                    Full refund if you cancel 7+ days before • Launchgarage, Quezon City
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Final Push */}
-            <p className="text-lg md:text-xl text-primary-100 max-w-2xl mx-auto pt-4">
-              Don't let "that's a great idea" turn into another failed launch. Get validation data that matters.
+            {/* Header */}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              Stop Guessing. Start Validating.
+            </h2>
+            
+            {/* Subheader */}
+            <p className="text-xl md:text-2xl text-primary-100 max-w-2xl mx-auto leading-relaxed">
+              Don't let "that's a great idea" turn into another failed launch. Get actual validation data from real customers who will pay.
             </p>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <button className="btn btn-primary text-lg px-8 py-4">
+                Get Your Slot for the Workshop
+              </button>
+              <button className="btn btn-secondary text-lg px-8 py-4">
+                Book a Call
+              </button>
+            </div>
           </div>
         </div>
       </section>
