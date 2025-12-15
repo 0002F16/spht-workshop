@@ -1,9 +1,14 @@
 import FAQItem from './components/FAQItem'
 
+const FB_TEST_EVENT_CODE = 'TEST70754'
+
 function App() {
   const trackFbEvent = (eventName, params = {}) => {
     if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', eventName, params)
+      window.fbq('track', eventName, { 
+        ...params,
+        test_event_code: FB_TEST_EVENT_CODE,
+      })
     }
   }
 
