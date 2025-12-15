@@ -1,6 +1,12 @@
 import FAQItem from './components/FAQItem'
 
 function App() {
+  const trackFbEvent = (eventName, params = {}) => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', eventName, params)
+    }
+  }
+
   const faqs = [
     {
       question: "What will I leave with after the Workshop (Day 1)?",
@@ -99,6 +105,7 @@ function App() {
                 href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackFbEvent('Lead', { content_name: 'Header Book a Call' })}
                 className="btn btn-primary hidden sm:inline-flex"
               >
                 Book a Call
@@ -163,6 +170,7 @@ function App() {
                   href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackFbEvent('Lead', { content_name: 'Hero Book a Call' })}
                   className="btn btn-primary w-full sm:w-auto"
                 >
                   Book a Call
@@ -309,6 +317,7 @@ function App() {
                       href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackFbEvent('Lead', { content_name: 'Reserve Workshop Seat' })}
                       className="btn btn-secondary w-full"
                     >
                       Reserve Workshop Seat
@@ -371,6 +380,7 @@ function App() {
                       href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackFbEvent('Lead', { content_name: 'Book Discovery Call' })}
                       className="btn btn-secondary w-full"
                     >
                       Book Discovery Call
@@ -443,6 +453,7 @@ function App() {
                       href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackFbEvent('Lead', { content_name: 'Reserve Full Package' })}
                       className="btn btn-primary w-full"
                     >
                       Reserve Full Package
@@ -571,6 +582,7 @@ function App() {
                   href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackFbEvent('Lead', { content_name: 'Get Your Slot for the Workshop (What to Expect)' })}
                   className="btn btn-primary text-lg px-8 py-4 font-bold"
                 >
                   Get Your Slot for the Workshop
@@ -647,6 +659,7 @@ function App() {
                     href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackFbEvent('Lead', { content_name: 'Reserve Full Package (Full Package Section)' })}
                     className="btn btn-primary w-full text-lg py-4 font-bold"
                   >
                     Reserve Full Package
@@ -1027,6 +1040,7 @@ function App() {
                 href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                 target="_blank"
                 rel="noopener noreferrer"
+                    onClick={() => trackFbEvent('Lead', { content_name: 'Get Your Slot for the Workshop (Final CTA)' })}
                 className="btn btn-primary text-lg px-8 py-4"
               >
                 Get Your Slot for the Workshop
@@ -1035,6 +1049,7 @@ function App() {
                 href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                 target="_blank"
                 rel="noopener noreferrer"
+                    onClick={() => trackFbEvent('Lead', { content_name: 'Book a Call (Final CTA)' })}
                 className="btn btn-secondary text-lg px-8 py-4"
               >
                 Book a Call
