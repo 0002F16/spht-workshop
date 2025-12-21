@@ -1,17 +1,6 @@
 import FAQItem from './components/FAQItem'
 
-const FB_TEST_EVENT_CODE = 'TEST70754'
-
 function App() {
-  const trackFbEvent = (eventName, params = {}) => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', eventName, { 
-        ...params,
-        test_event_code: FB_TEST_EVENT_CODE,
-      })
-    }
-  }
-
   const faqs = [
     {
       question: "What will I leave with after the Workshop (Day 1)?",
@@ -110,7 +99,6 @@ function App() {
                 href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackFbEvent('Lead', { content_name: 'Header Book a Call' })}
                 className="btn btn-primary hidden sm:inline-flex"
               >
                 Book a Call
@@ -175,7 +163,6 @@ function App() {
                   href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackFbEvent('Lead', { content_name: 'Hero Book a Call' })}
                   className="btn btn-primary w-full sm:w-auto"
                 >
                   Book a Call
@@ -187,6 +174,9 @@ function App() {
                   View Programs
                 </button>
               </div>
+              <p className="text-sm text-gray-600 mt-3 hero-animate hero-fade-in-up-delay-3">
+                Seats start at ₱9,900 with flexible payment options.
+              </p>
             </div>
 
             {/* Right Column - Image */}
@@ -252,7 +242,7 @@ function App() {
 
             {/* Value Proposition */}
             <div className="space-y-4 pt-6">
-              <p className="text-2xl md:text-3xl lg:text-4xl text-gray-200 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
                 That <span className="text-primary-400 font-bold">$200K</span> mistake taught me the <span className="text-primary-400 font-bold">validation process</span> that could have saved it. I've refined it over <span className="text-primary-400 font-bold">10 years</span> of coaching founders across industries. Now I'm teaching it in <span className="text-primary-400 font-bold">one focused day</span>.
               </p>
             </div>
@@ -274,126 +264,6 @@ function App() {
 
             {/* Three Column Comparison */}
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              {/* Workshop Only */}
-              <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Workshop Only</h3>
-                    <p className="text-body text-gray-600">Perfect for quick validation</p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-bold text-primary">₱9,900</span>
-                      <span className="text-sm text-gray-500">Early Bird</span>
-                    </div>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-lg font-semibold text-gray-400 line-through">₱14,900</span>
-                      <span className="text-sm text-gray-500">Regular</span>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-gray-200 pt-6 space-y-4">
-                    <p className="font-semibold text-gray-900">What's Included:</p>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">Full-day Build Your MVP workshop</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">Prototype building & validation</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">Community access</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-4">
-                    <a 
-                      href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackFbEvent('Lead', { content_name: 'Reserve Workshop Seat' })}
-                      className="btn btn-secondary w-full"
-                    >
-                      Reserve Workshop Seat
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Coaching Only */}
-              <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Coaching Only</h3>
-                    <p className="text-body text-gray-600">12 weeks of ongoing support</p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-bold text-primary">₱19,900</span>
-                      <span className="text-sm text-gray-500">Early Bird</span>
-                    </div>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-lg font-semibold text-gray-400 line-through">₱29,900</span>
-                      <span className="text-sm text-gray-500">Regular</span>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-gray-200 pt-6 space-y-4">
-                    <p className="font-semibold text-gray-900">What's Included:</p>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">12 weeks of live coaching</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">Tools, templates, AI-powered support</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">Discord community</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm text-gray-700">Feedback, validation, go-to-market prep</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-4">
-                    <a 
-                      href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackFbEvent('Lead', { content_name: 'Book Discovery Call' })}
-                      className="btn btn-secondary w-full"
-                    >
-                      Book Discovery Call
-                    </a>
-                  </div>
-                </div>
-              </div>
-
               {/* Full Package - Featured */}
               <div className="bg-gradient-to-br from-primary-50 to-primary-100 border-2 border-primary rounded-2xl p-8 shadow-lg relative">
                 <div className="absolute top-4 right-4">
@@ -455,15 +325,170 @@ function App() {
 
                   <div className="pt-4">
                     <a 
-                      href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
+                      href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackFbEvent('Lead', { content_name: 'Reserve Full Package' })}
                       className="btn btn-primary w-full"
                     >
-                      Reserve Full Package
+                      Book a Call
                     </a>
-                    <p className="text-xs text-gray-600 mt-2 text-center">Payment plans available</p>
+                    <div className="mt-2 space-y-1 text-center">
+                      <p className="text-sm text-gray-600">Free call. No commitment.</p>
+                      <p className="text-sm text-gray-600 hidden md:block">
+                        <a 
+                          href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-700 underline"
+                        >
+                          Ask about payment plans.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Workshop Only */}
+              <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Workshop Only</h3>
+                    <p className="text-body text-gray-600">Perfect for quick validation</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-primary">₱9,900</span>
+                      <span className="text-sm text-gray-500">Early Bird</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-semibold text-gray-400 line-through">₱14,900</span>
+                      <span className="text-sm text-gray-500">Regular</span>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-gray-200 pt-6 space-y-4">
+                    <p className="font-semibold text-gray-900">What's Included:</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Full-day Build Your MVP workshop</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Prototype building & validation</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Community access</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4">
+                    <a 
+                      href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary w-full"
+                    >
+                      Book a Call
+                    </a>
+                    <div className="mt-2 space-y-1 text-center">
+                      <p className="text-sm text-gray-600">Free call. No commitment.</p>
+                      <p className="text-sm text-gray-600 hidden md:block">
+                        <a 
+                          href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-700 underline"
+                        >
+                          Ask about payment plans.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Coaching Only */}
+              <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Coaching Only</h3>
+                    <p className="text-body text-gray-600">12 weeks of ongoing support</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-primary">₱19,900</span>
+                      <span className="text-sm text-gray-500">Early Bird</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-semibold text-gray-400 line-through">₱29,900</span>
+                      <span className="text-sm text-gray-500">Regular</span>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-gray-200 pt-6 space-y-4">
+                    <p className="font-semibold text-gray-900">What's Included:</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">12 weeks of live coaching</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Tools, templates, AI-powered support</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Discord community</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-gray-700">Feedback, validation, go-to-market prep</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4">
+                    <a 
+                      href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary w-full"
+                    >
+                      Book a Call
+                    </a>
+                    <div className="mt-2 space-y-1 text-center">
+                      <p className="text-sm text-gray-600">Free call. No commitment.</p>
+                      <p className="text-sm text-gray-600 hidden md:block">
+                        <a 
+                          href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary-700 underline"
+                        >
+                          Ask about payment plans.
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -587,7 +612,6 @@ function App() {
                   href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackFbEvent('Lead', { content_name: 'Get Your Slot for the Workshop (What to Expect)' })}
                   className="btn btn-primary text-lg px-8 py-4 font-bold"
                 >
                   Get Your Slot for the Workshop
@@ -664,12 +688,11 @@ function App() {
                     href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => trackFbEvent('Lead', { content_name: 'Reserve Full Package (Full Package Section)' })}
                     className="btn btn-primary w-full text-lg py-4 font-bold"
                   >
                     Reserve Full Package
                   </a>
-                  <p className="text-sm text-gray-600 mt-4 text-center">Or <a href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">book a discovery call</a> to learn more</p>
+                  <p className="text-sm text-gray-600 mt-4 text-center">Or <button className="text-primary hover:underline font-semibold">book a discovery call</button> to learn more</p>
                 </div>
               </div>
 
@@ -1045,7 +1068,6 @@ function App() {
                 href="https://api.ghlsandbox.net/widget/form/VUBtDYBNuZuc9tttDPUS"
                 target="_blank"
                 rel="noopener noreferrer"
-                    onClick={() => trackFbEvent('Lead', { content_name: 'Get Your Slot for the Workshop (Final CTA)' })}
                 className="btn btn-primary text-lg px-8 py-4"
               >
                 Get Your Slot for the Workshop
@@ -1054,7 +1076,6 @@ function App() {
                 href="https://api.ghlsandbox.net/widget/booking/B7cMXh3yR0sMoOaaHiwV"
                 target="_blank"
                 rel="noopener noreferrer"
-                    onClick={() => trackFbEvent('Lead', { content_name: 'Book a Call (Final CTA)' })}
                 className="btn btn-secondary text-lg px-8 py-4"
               >
                 Book a Call
