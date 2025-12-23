@@ -125,7 +125,7 @@ function App() {
             <div className="space-y-8">
               {/* Main Heading */}
               <h1 className="text-h1 text-gray-900 leading-tight hero-animate hero-fade-in-up">
-                <span className="text-primary">Validate Before You Waste Six Months</span>
+                <span className="text-primary">Turn your idea into paying demand</span>
               </h1>
 
               {/* Description */}
